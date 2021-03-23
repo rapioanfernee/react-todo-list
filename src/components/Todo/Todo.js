@@ -19,7 +19,7 @@ const Todo = ({
             })
     }
     return (
-        <div style={{ border: "1px solid grey", padding: 8, margin: 8 }} key={`index-${todo.id}`}>
+        <div style={{ border: "1px solid grey", padding: 8, margin: 32 }} key={`index-${todo.id}`}>
             <div>{todo.todoName}</div>
             <div>{todo.todoDescription}</div>
             <div>{todo.finished}</div>
