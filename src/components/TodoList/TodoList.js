@@ -1,19 +1,20 @@
 import React from 'react'
 import Todo from "../Todo"
-import useTodoContext from "../../context/todos/useTodoContext";
 
 const TodoList = ({
     error,
     todos,
     loading,
+    todoProps,
 }) => {
+    console.log(todoProps)
     const renderTodos = () => {
         if (error) {
             return <div>{error}</div>
         }
         return todos.map((todo, index) => {
             return (
-                <Todo todo={todo} key={`${todo.id}-${index}`}></Todo>
+                <Todo todo={todo} key={`${todo.id}-${index}`} {...todoProps}></Todo>
             )
         })
     }

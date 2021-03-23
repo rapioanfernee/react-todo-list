@@ -18,8 +18,8 @@ const createActions = (dispatch) => {
         addTodo: (id) => dispatch({ type: ADD_TODO, payload: id }),
         addTodoSuccess: (data) => dispatch({ type: ADD_TODO_SUCCESS, payload: data }),
         addTodoFailed: (err) => dispatch({ type: ADD_TODO_FAILED, payload: err }),
-        deleteTodo: (id) => dispatch({ type: DELETE_TODO, payload: id }),
-        deleteTodoSuccess: (data) => dispatch({ type: DELETE_TODO_SUCCESS, payload: data }),
+        deleteTodo: () => dispatch({ type: DELETE_TODO }),
+        deleteTodoSuccess: (id) => dispatch({ type: DELETE_TODO_SUCCESS, payload: id }),
         deleteTodoFailed: (err) => dispatch({ type: DELETE_TODO_FAILED, payload: err })
     }
 }

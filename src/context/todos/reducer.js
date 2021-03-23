@@ -61,6 +61,27 @@ export const reducer = (state = initialState, action) => {
                 error: action.payload,
             };
         }
+        case DELETE_TODO: {
+            return {
+                ...state,
+                loading: true,
+            };
+        }
+        case DELETE_TODO_SUCCESS: {
+            const filteredTodos = state.todos.filter(todo => todo.id !== action.payload)
+            return {
+                ...state,
+                loading: false,
+                todos: filteredTodos
+            };
+        }
+        case DELETE_TODO_FAILED: {
+            return {
+                ...state,
+                loading: false,
+                error: action.payload,
+            };
+        }
         default: {
             return state;
         }
