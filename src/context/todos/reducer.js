@@ -8,6 +8,9 @@ import {
     ADD_TODO,
     ADD_TODO_SUCCESS,
     ADD_TODO_FAILED,
+    UPDATE_TODO,
+    UPDATE_TODO_SUCCESS,
+    UPDATE_TODO_FAILED,
 } from "./constants"
 
 export const initialState = {
@@ -80,6 +83,34 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 error: action.payload,
+            };
+        }
+        case UPDATE_TODO: {
+            return {
+                ...state,
+                loading: true,
+            };
+        }
+        case UPDATE_TODO_SUCCESS: {
+            const updatedTodos = state.todos.map(todo => {
+                if (action.payload.id === todo.id) {
+                    return {
+                        ...action.payload
+                    };
+                }
+                return todo;
+            })
+            return {
+                ...state,
+                loading: false,
+                todos: updatedTodos
+            };
+        }
+        case UPDATE_TODO_FAILED: {
+            return {
+                ...state,
+                loading: false,
+
             };
         }
         default: {

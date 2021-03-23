@@ -8,6 +8,9 @@ import {
     ADD_TODO,
     ADD_TODO_FAILED,
     ADD_TODO_SUCCESS,
+    UPDATE_TODO,
+    UPDATE_TODO_FAILED,
+    UPDATE_TODO_SUCCESS,
 } from "./constants"
 
 const createActions = (dispatch) => {
@@ -20,7 +23,10 @@ const createActions = (dispatch) => {
         addTodoFailed: (err) => dispatch({ type: ADD_TODO_FAILED, payload: err }),
         deleteTodo: () => dispatch({ type: DELETE_TODO }),
         deleteTodoSuccess: (id) => dispatch({ type: DELETE_TODO_SUCCESS, payload: id }),
-        deleteTodoFailed: (err) => dispatch({ type: DELETE_TODO_FAILED, payload: err })
+        deleteTodoFailed: (err) => dispatch({ type: DELETE_TODO_FAILED, payload: err }),
+        updateTodo: () => dispatch({ type: UPDATE_TODO }),
+        updateTodoSuccess: (data) => dispatch({ type: UPDATE_TODO_SUCCESS, payload: data }),
+        updateTodoFailed: (err) => dispatch({ type: UPDATE_TODO_FAILED, payload: err })
     }
 }
 

@@ -15,6 +15,9 @@ function App() {
     deleteTodo,
     deleteTodoSuccess,
     deleteTodoFailed,
+    updateTodo,
+    updateTodoSuccess,
+    updateTodoFailed,
     state: todoState
   } = useTodoContext();
   const { loading, error, todos } = todoState;
@@ -41,6 +44,9 @@ function App() {
           deleteTodo,
           deleteTodoSuccess,
           deleteTodoFailed,
+          updateTodo,
+          updateTodoSuccess,
+          updateTodoFailed,
         }}
       />
       <TodoInput
