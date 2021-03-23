@@ -5,4 +5,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Steps to run
 
 - run `npm install` 
-- create a `.env` file and copy the contents of `.env.example` to the created file
+- create a `.env` file in the root directory of the project and copy the contents of `.env.example` to the created file
