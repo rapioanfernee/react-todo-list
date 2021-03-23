@@ -15,6 +15,9 @@ import {
 
 export const initialState = {
     loading: false,
+    adding: false,
+    updating: null,
+    deleting: null,
     error: null,
     todos: [],
 }
@@ -44,13 +47,13 @@ export const reducer = (state = initialState, action) => {
         case ADD_TODO: {
             return {
                 ...state,
-                loading: true,
+                adding: true,
             };
         }
         case ADD_TODO_SUCCESS: {
             return {
                 ...state,
-                loading: false,
+                adding: false,
                 todos: [
                     ...state.todos,
                     action.payload,
@@ -60,35 +63,35 @@ export const reducer = (state = initialState, action) => {
         case ADD_TODO_FAILED: {
             return {
                 ...state,
-                loading: false,
+                adding: false,
                 error: action.payload,
             };
         }
         case DELETE_TODO: {
             return {
                 ...state,
-                loading: true,
+                deleting: action.payload,
             };
         }
         case DELETE_TODO_SUCCESS: {
             const filteredTodos = state.todos.filter(todo => todo.id !== action.payload)
             return {
                 ...state,
-                loading: false,
+                deleting: null,
                 todos: filteredTodos
             };
         }
         case DELETE_TODO_FAILED: {
             return {
                 ...state,
-                loading: false,
+                deleting: null,
                 error: action.payload,
             };
         }
         case UPDATE_TODO: {
             return {
                 ...state,
-                loading: true,
+                updating: action.payload,
             };
         }
         case UPDATE_TODO_SUCCESS: {
@@ -102,14 +105,14 @@ export const reducer = (state = initialState, action) => {
             })
             return {
                 ...state,
-                loading: false,
+                updating: null,
                 todos: updatedTodos
             };
         }
         case UPDATE_TODO_FAILED: {
             return {
                 ...state,
-                loading: false,
+                updating: null,
 
             };
         }

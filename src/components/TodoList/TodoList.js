@@ -6,15 +6,22 @@ const TodoList = ({
     todos,
     loading,
     todoProps,
+    deleting,
+    updating,
 }) => {
-    console.log(todoProps)
     const renderTodos = () => {
         if (error) {
             return <div>{error}</div>
         }
         return todos.map((todo, index) => {
             return (
-                <Todo todo={todo} key={`${todo.id}-${index}`} {...todoProps}></Todo>
+                <Todo
+                    todo={todo}
+                    key={`${todo.id}-${index}`}
+                    deleting={deleting}
+                    updating={updating}
+                    {...todoProps}
+                ></Todo>
             )
         })
     }

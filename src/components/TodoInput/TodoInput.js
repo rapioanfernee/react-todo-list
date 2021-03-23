@@ -5,6 +5,7 @@ const TodoInput = ({
     addTodo,
     addTodoFailed,
     addTodoSuccess,
+    adding,
 }) => {
     const [value, setValue] = useState('');
     const [description, setDescription] = useState('');
@@ -46,7 +47,8 @@ const TodoInput = ({
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-evenly',
-                height: 150,
+                minHeight: 215,
+                maxHeight: 500,
                 maxWidth: 350,
                 margin: 'auto'
             }}
@@ -57,14 +59,21 @@ const TodoInput = ({
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
                 placeholder="Todo Title"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
             />
             <textarea
-                rows="5"
+                rows="3"
                 value={description}
                 placeholder="Todo Description"
                 onChange={e => setDescription(e.target.value)}
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
             />
-            <button type="submit">Submit</button>
+            <button
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                type="submit">
+                Submit
+            </button>
+            {adding && 'Adding To-do...'}
         </form>
     )
 }

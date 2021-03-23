@@ -21,10 +21,10 @@ const createActions = (dispatch) => {
         addTodo: (id) => dispatch({ type: ADD_TODO, payload: id }),
         addTodoSuccess: (data) => dispatch({ type: ADD_TODO_SUCCESS, payload: data }),
         addTodoFailed: (err) => dispatch({ type: ADD_TODO_FAILED, payload: err }),
-        deleteTodo: () => dispatch({ type: DELETE_TODO }),
+        deleteTodo: (id) => dispatch({ type: DELETE_TODO, payload: id }),
         deleteTodoSuccess: (id) => dispatch({ type: DELETE_TODO_SUCCESS, payload: id }),
         deleteTodoFailed: (err) => dispatch({ type: DELETE_TODO_FAILED, payload: err }),
-        updateTodo: () => dispatch({ type: UPDATE_TODO }),
+        updateTodo: (id) => dispatch({ type: UPDATE_TODO, payload: id }),
         updateTodoSuccess: (data) => dispatch({ type: UPDATE_TODO_SUCCESS, payload: data }),
         updateTodoFailed: (err) => dispatch({ type: UPDATE_TODO_FAILED, payload: err })
     }

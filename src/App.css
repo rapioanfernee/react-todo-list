@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  max-width: 1024px;
+  max-width: 512px;
   margin: auto;
 }
 
@@ -37,4 +37,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
 }

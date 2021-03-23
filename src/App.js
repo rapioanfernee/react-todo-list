@@ -20,7 +20,7 @@ function App() {
     updateTodoFailed,
     state: todoState
   } = useTodoContext();
-  const { loading, error, todos } = todoState;
+  const { loading, error, todos, deleting, adding, updating } = todoState;
   const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
@@ -40,6 +40,8 @@ function App() {
         todos={todos}
         error={error}
         loading={loading}
+        deleting={deleting}
+        updating={updating}
         todoProps={{
           deleteTodo,
           deleteTodoSuccess,
@@ -53,6 +55,7 @@ function App() {
         addTodo={addTodo}
         addTodoSuccess={addTodoSuccess}
         addTodoFailed={addTodoFailed}
+        adding={adding}
       />
     </div>
 
