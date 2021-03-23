@@ -1,24 +1,47 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react'
+import TodoList from "./components/TodoList";
+import TodoInput from "./components/TodoInput";
+import useTodoContext from "./context/todos/useTodoContext";
 
 function App() {
+  const {
+    fetchTodos,
+    fetchTodosSuccess,
+    fetchTodosFailed,
+    addTodo,
+    addTodoSuccess,
+    addTodoFailed,
+    state: todoState
+  } = useTodoContext();
+  const { loading, error, todos } = todoState;
+  const API_URL = process.env.REACT_APP_API_URL;
+
+  useEffect(() => {
+    fetchTodos();
+    fetch(`${API_URL}/todos`)
+      .then(res => res.json())
+      .then(data => fetchTodosSuccess(data))
+      .catch(err => {
+        console.error(err);
+        fetchTodosFailed();
+      });
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TodoList
+        todos={todos}
+        error={error}
+        loading={loading}
+      />
+      <TodoInput
+        addTodo={addTodo}
+        addTodoSuccess={addTodoSuccess}
+        addTodoFailed={addTodoFailed}
+      />
     </div>
+
   );
 }
 
