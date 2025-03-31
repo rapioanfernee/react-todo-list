@@ -8,10 +8,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Steps to run
 
-- run `npm install` 
-- create a `.env` file in the root directory of the project and copy the contents of `.env.example` to the created file
+- Delete `package-lock.json` and `node_modules` to properly install all dependencies
+- Run `npm install`
+- Create a `.env` file in the root directory of the project and copy the contents of `.env.example` to the created file
 
 ## Alternatives for API
 
 If the current API is not working, the alternative github repository for a test rest server is on https://github.com/rapioanfernee/todo-list-rest-server.
+
 - run `npm start` to start the server and change the API environment variable `REACT_APP_API_URL` in .env of this project to `http://localhost:4000`.
