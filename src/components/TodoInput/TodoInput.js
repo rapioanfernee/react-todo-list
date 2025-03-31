@@ -3,7 +3,8 @@ import React, { useState } from "react";
 const TodoInput = ({ addTodo, addTodoFailed, addTodoSuccess, adding }) => {
   const [value, setValue] = useState("");
   const [description, setDescription] = useState("");
-  const API_URL = process.env.REACT_APP_API_URL;
+  const API_URL =
+    "https://2bf5mlx50k.execute-api.ap-southeast-1.amazonaws.com/dev";
 
   const handleSubmit = (e) => {
     e.preventDefault();

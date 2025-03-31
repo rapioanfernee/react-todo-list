@@ -11,7 +11,8 @@ const Todo = ({
   updateTodoSuccess,
   updateTodoFailed,
 }) => {
-  const API_URL = process.env.REACT_APP_API_URL;
+  const API_URL =
+    "https://2bf5mlx50k.execute-api.ap-southeast-1.amazonaws.com/dev";
   const [mode, setMode] = useState(null);
   const [title, setTitle] = useState(todo.title);
   const [description, setDescription] = useState(todo.description);

@@ -21,7 +21,8 @@ function App() {
     state: todoState,
   } = useTodoContext();
   const { loading, error, todos, deleting, adding, updating } = todoState;
-  const API_URL = process.env.REACT_APP_API_URL;
+  const API_URL =
+    "https://2bf5mlx50k.execute-api.ap-southeast-1.amazonaws.com/dev";
 
   useEffect(() => {
     fetchTodos();
