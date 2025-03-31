@@ -1,5 +1,5 @@
-import './App.css';
-import { useEffect } from 'react'
+import "./App.css";
+import { useEffect } from "react";
 import TodoList from "./components/TodoList";
 import TodoInput from "./components/TodoInput";
 import useTodoContext from "./context/todos/useTodoContext";
@@ -18,17 +18,17 @@ function App() {
     updateTodo,
     updateTodoSuccess,
     updateTodoFailed,
-    state: todoState
+    state: todoState,
   } = useTodoContext();
   const { loading, error, todos, deleting, adding, updating } = todoState;
   const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     fetchTodos();
-    fetch(`${API_URL}/todos`)
-      .then(res => res.json())
-      .then(data => fetchTodosSuccess(data))
-      .catch(err => {
+    fetch(`${API_URL}/tasks`)
+      .then((res) => res.json())
+      .then((data) => fetchTodosSuccess(data))
+      .catch((err) => {
         console.error(err);
         fetchTodosFailed();
       });
@@ -58,7 +58,6 @@ function App() {
         adding={adding}
       />
     </div>
-
   );
 }
 
